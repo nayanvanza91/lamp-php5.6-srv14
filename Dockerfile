@@ -50,7 +50,10 @@ RUN apt-get update && apt-get install -y vim \
     && mv phpMyAdmin-4.6.4-english phpmyadmin \
     && rm -rf phpMyAdmin-4.6.4-english.tar.gz \
     && cp phpmyadmin/config.sample.inc.php phpmyadmin/config.inc.php \
-    && chown -R www-data:www-data phpmyadmin  
+    && chown -R www-data:www-data phpmyadmin \
+    && curl -sS https://getcomposer.org/installer | php \
+    && mv composer.phar /usr/local/bin/composer \
+    && chmod +x /usr/local/bin/composer 
 
 ADD tools/docker/apache2/apache2.conf /etc/apache2/apache2.conf
 ADD tools/docker/apache2/envvars /etc/apache2/envvars
