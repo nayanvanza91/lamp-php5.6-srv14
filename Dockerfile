@@ -15,9 +15,10 @@ RUN apt-get update && apt-get install -y vim \
     && apt-get install -y supervisor \
     && apt-get install -y postfix \
     && apt-get install -y openssh-server \
-    && apt-get install psmisc \
-    && apt-get install tree \
-    && apt-get install rsyslog \
+    && apt-get install -y psmisc \
+    && apt-get install -y tree \
+    && apt-get install -y unzip \
+    && apt-get install -y rsyslog \
     && mkdir /var/run/sshd \
     && sed -i 's/PermitRootLogin without-password/PermitRootLogin yes/' /etc/ssh/sshd_config \
     && apt-get install -y language-pack-en-base \
@@ -42,7 +43,7 @@ RUN apt-get update && apt-get install -y vim \
     && add-apt-repository ppa:ondrej/php \
     && apt-get update \
     && apt-get install -y php5.6 \
-    && apt-get install -y php5.6-mbstring php5.6-mcrypt php5.6-mysql php5.6-xml php5.6-cli php5.6-gd \
+    && apt-get install -y php5.6-mbstring php5.6-mcrypt php5.6-mysql php5.6-xml php5.6-cli php5.6-gd php5.6-soap php5.6-curl\
     && apt-get install -y libapache2-mod-php5.6 \
     && cd / \
     && wget https://files.phpmyadmin.net/phpMyAdmin/4.6.4/phpMyAdmin-4.6.4-english.tar.gz \
